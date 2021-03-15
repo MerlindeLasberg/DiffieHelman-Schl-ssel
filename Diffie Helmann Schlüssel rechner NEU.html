@@ -1,0 +1,67 @@
+<html lang="en" dir="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;  charset=utf-8" />
+
+<script>
+"use strict"
+
+function fKey() {
+var vg;
+var vp;
+var va;
+var vb;
+var vgA;
+var vgB;
+var vKA;
+var vAusgabe;
+
+vg = document.getElementById("idg").value;
+vg = parsetFloat(vg);
+
+vg = document.getElementById("idp").value;
+vg = parsetFloat(vp);
+
+vg = document.getElementById("ida").value;
+vg = parsetFloat(va);
+
+vg = document.getElementById("idb").value;
+vg = parsetFloat(vb);
+
+vgA = Math.pow(vg, va) % vp;
+vgB = Math.pow(vg, vb) % vp;
+vKa = Math.pow(vgB, va) % vp;
+vKB = Math.pow(vgA, vb) % vp;
+
+vAusgabe = "öffentlicher Schlüssel Alice" + vgA;
+vAusgabe = vAusgabe + "<br>" + "öffentlischer Schlüssel Bob:" + vgB;
+vAusgabe + "<br>" + "<br>" + "______________________________" + "<br>";
+vAusgabe = vAusgabe + "<br>" + "Generierter Schlüssel K Alice: " + vKB;
+vAusgabe = vAusgabe + "<br>" + "Generierter Schlüssel K Bob; " + vKB;
+
+if (vp > 99) {
+vAusgabe = " p muss kleiner 100 sein!";
+}
+
+document.getElementById(idAusgabe).innerHTML = vAusgabe;
+}
+
+</script>
+<title></title>
+</head>
+<body>
+<h1>Diffie Helman Schlüssel berechnung</h1>
+1. Alice und Bob einigen sich auf: <br /><br>
+g = <input id="idg" type="text" value="" /><br />
+p = <input id="idp" type="text" value="" /><br /><br />
+
+2. Alice wählt die Geheime Zahl a:<br /><br>
+a = <input id="ida" type="text" value="" /><br /><br>
+
+3. Bob wählt die Geheime Zahl b:<br /><br>
+b = <input id="idb" type="text" value="" /><br /><br>
+
+<button onClick="fKey();"> Berechene Schlüssel K!</button><br><br>
+
+
+</body>
+</html>
