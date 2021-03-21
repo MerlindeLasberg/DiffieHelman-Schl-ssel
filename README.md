@@ -1,1 +1,1 @@
-# DiffieHelman-Schl-ssel
+# DiffieHelman-Schlüssel
