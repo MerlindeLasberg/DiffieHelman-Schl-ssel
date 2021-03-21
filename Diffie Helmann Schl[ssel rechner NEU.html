@@ -1,0 +1,108 @@
+<html lang="en" dir="ltr">
+<head>
+
+<script>
+"use strict";
+
+function fDifi() {
+
+var vgA;
+var vgB;
+var va;
+var vb;
+var vKA;
+var vKB;
+var vg;
+var vp;
+var vAusgabe;
+var vX;
+var vY;
+var vAnzahl;
+
+vX = 1;
+
+vg = document.getElementById ("idg").value;
+vg = parseFloat(vg);
+
+vp = document.getElementById ("idp").value;
+vp = parseFloat(vp);
+
+va = document.getElementById ("ida").value;
+va = parseFloat(va);
+
+vb = document.getElementById ("idb").value;
+vb = parseFloat(vb);
+
+vgA = Math.pow(vg, va) % vp;
+vgB = Math.pow(vg, vb) % vp;
+vKB = Math.pow(vgB, va) % vp;
+vKA = Math.pow(vgA, vb) % vp;
+
+vAnzahl = document.getElementById("idAnzahl").value;
+
+
+vAusgabe = "Öffentlicher Schlüssel Alice: " + vgA;
+vAusgabe = vAusgabe + "<br>" + "Öffentlischer Schlüssel Bob: " + vgB;
+vAusgabe = vAusgabe + "<br>" + "______________________________" + "<br>";
+vAusgabe = vAusgabe + "<br>" + "Generierter Schlüssel K Alice: " + vKA;
+vAusgabe = vAusgabe + "<br>" + "Generierter Schlüssel K Bob: " + vKB;
+
+
+vAusgabe = vAusgabe + "";
+vAusgabe = vAusgabe + "<br><br> Die Wertetabelle ...";
+
+vAusgabe = vAusgabe + "<table border=1>";
+vAusgabe = vAusgabe + "<tr><th>x</td><th>f(x)=x + 2 </td></tr>"
+
+    
+
+while (vX <=vAnzahl) {
+
+    vY = vX+2
+
+    vAusgabe = vAusgabe + "<tr><td>" + vX + "</td><td>" + vY + "</td></tr>";
+
+vX = vX + 1;
+
+vAusgabe = vAusgabe + "</table";
+
+document.getElementById("idAusgabe").innerHTML = vAusgabe;
+
+}
+
+
+if (vp > 99) {
+vAusgabe = " p muss kleiner 100 sein!";
+}
+
+document.getElementById("idAusgabe").innerHTML = vAusgabe;
+}
+
+</script>
+<title>Difi</title>
+</head><br>
+<body>
+
+<h1>Diffie Helman Schlüssel berechnung</h1>
+
+1. Alice und Bob einigen sich auf: <br /><br>
+g = <input id="idg" type="text" value="" /><br />
+
+p = <input id="idp" type="text" value="" /><br /><br />
+
+2. Alice wählt die Geheime Zahl a:<br /><br>
+a = <input id="ida" type="text" value="" /><br /><br>
+
+3. Bob wählt die Geheime Zahl b:<br /><br>
+b = <input id="idb" type="text" value="" /><br /><br>
+
+wie viele berechnungen? = <input id="idAnzahl" type="text" value="" /><br /><br>
+
+
+
+<button onClick="fDifi();"> Berechene Schlüssel K!</button><br><br>
+
+<div id="idAusgabe"></div>
+
+</body>
+</html>
